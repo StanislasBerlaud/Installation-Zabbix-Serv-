@@ -5,7 +5,7 @@ Ce script Bash permet d’installer et de configurer **Zabbix 7.0** sur un serve
 ## 🚀 Fonctionnalités
 
 - Mise à jour du système
-- Configuration des locales `en_US.UTF-8` et `fr_FR.UTF-8` si absente
+- Configuration des locales `en_US.UTF-8` et `fr_FR.UTF-8` si absentes
 - Installation de MariaDB
 - Création de la base de données et de l'utilisateur Zabbix
 - Installation du dépôt officiel Zabbix
