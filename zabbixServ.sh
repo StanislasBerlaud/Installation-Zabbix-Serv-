@@ -21,7 +21,6 @@ echo "Création de la base de données Zabbix"
 read -s -p "Entrez le mot de passe pour l'utilisateur Zabbix : " mdp
 echo
 
-# Création de la base et de l'utilisateur
 sudo mysql -u root <<EOF
 CREATE DATABASE IF NOT EXISTS zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 CREATE OR REPLACE USER 'zabbix'@'localhost' IDENTIFIED BY '${mdp}';
