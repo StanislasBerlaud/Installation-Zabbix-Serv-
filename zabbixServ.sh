@@ -5,14 +5,22 @@ echo "Lancement de l'installation de Zabbix"
 echo "Mise à jour du système..."
 sudo apt update && sudo apt upgrade -y
 
-echo "Configuration de la locale en_US.UTF-8 si nécessaire..."
+echo "Configuration des locales en_US.UTF-8 et fr_FR.UTF-8"
+
+
 if ! locale -a | grep -q "en_US.UTF-8"; then
     echo "Ajout de la locale en_US.UTF-8..."
     sudo sed -i 's/^# *\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen
-    sudo locale-gen
-else
-    echo "La locale en_US.UTF-8 est déjà présente."
 fi
+
+if ! locale -a | grep -q "fr_FR.UTF-8"; then
+    echo "Ajout de la locale fr_FR.UTF-8..."
+    sudo sed -i 's/^# *\(fr_FR.UTF-8 UTF-8\)/\1/' /etc/locale.gen
+fi
+
+echo "Génération des locales..."
+sudo locale-gen
+
 
 echo "Installation de MariaDB..."
 sudo apt install mariadb-server -y
@@ -21,6 +29,7 @@ echo "Création de la base de données Zabbix"
 read -s -p "Entrez le mot de passe pour l'utilisateur Zabbix : " mdp
 echo
 
+# Création de la base et de l'utilisateur
 sudo mysql -u root <<EOF
 CREATE DATABASE IF NOT EXISTS zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 CREATE OR REPLACE USER 'zabbix'@'localhost' IDENTIFIED BY '${mdp}';
