@@ -1,6 +1,6 @@
 # Script d'installation automatique de Zabbix sur Debian 12
 
-Ce script Bash permet d’installer et de configurer automatiquement **Zabbix 7.0** sur un serveur **Debian 12**. Il comprend l'installation de la base de données **MariaDB**, du serveur Zabbix, de l'interface web et de l'agent Zabbix.
+Ce script Bash permet d’installer et de configurer automatiquement **Zabbix 7.0** sur un serveur **Debian 12**. Il comprend l'installation de la base de données **MariaDB**, du serveur Zabbix, de l'interface web.
 
 ## 🚀 Fonctionnalités
 
