@@ -30,7 +30,7 @@ sudo apt install mariadb-server -y
 echo "Création de la base de données Zabbix"
 
 while true; do
-    read -s -p "Entrez le mot de passe pour l'utilisateur Zabbix : " mdp
+    read -s -p "Entrez le mot de passe pour l'utilisateur Zabbix pour la base de données : " mdp
     echo
     read -s -p "Confirmez le mot de passe : " mdp_confirm
     echo
