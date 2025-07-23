@@ -51,7 +51,7 @@ FLUSH PRIVILEGES;
 EOF
 
 echo "Téléchargement du dépôt Zabbix..."
-sudo wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_7.0-1+debian12_all.deb
+wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_7.0-1+debian12_all.deb
 
 echo "Installation du dépôt Zabbix..."
 sudo dpkg -i zabbix-release_7.0-1+debian12_all.deb
