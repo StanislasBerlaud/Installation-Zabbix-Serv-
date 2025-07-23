@@ -30,12 +30,12 @@ cd zabbix-debian-install
 Rendez le script exécutable :
 
 ```bash
-chmod +x install_zabbix.sh
+chmod +x zabbixServ.sh
 ```
 Lancez l’installation :
 
 ```bash
-./install_zabbix.sh
+./zabbixServ.sh
 ```
 Le script vous demandera un mot de passe pour l’utilisateur zabbix dans MariaDB. Assurez-vous de le retenir pour les futures configurations.
 
