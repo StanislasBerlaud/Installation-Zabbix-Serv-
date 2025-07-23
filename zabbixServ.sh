@@ -5,6 +5,7 @@ echo "Lancement de l'installation de Zabbix"
 echo "Mise à jour du système..."
 sudo apt update && sudo apt upgrade -y
 apt install apache2
+apt install wget
 
 
 echo "Configuration des locales en_US.UTF-8 et fr_FR.UTF-8"
