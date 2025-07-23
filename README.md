@@ -35,7 +35,7 @@ chmod +x zabbixServ.sh
 Lancez l’installation :
 
 ```bash
-./zabbixServ.sh
+sudo ./zabbixServ.sh
 ```
 Le script vous demandera un mot de passe pour l’utilisateur zabbix dans MariaDB. Assurez-vous de le retenir pour les futures configurations.
 
