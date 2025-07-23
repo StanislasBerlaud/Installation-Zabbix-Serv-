@@ -4,6 +4,8 @@ echo "Lancement de l'installation de Zabbix"
 
 echo "Mise à jour du système..."
 sudo apt update && sudo apt upgrade -y
+apt install apache2
+
 
 echo "Configuration des locales en_US.UTF-8 et fr_FR.UTF-8"
 
@@ -26,8 +28,20 @@ echo "Installation de MariaDB..."
 sudo apt install mariadb-server -y
 
 echo "Création de la base de données Zabbix"
-read -s -p "Entrez le mot de passe pour l'utilisateur Zabbix : " mdp
-echo
+
+while true; do
+    read -s -p "Entrez le mot de passe pour l'utilisateur Zabbix : " mdp
+    echo
+    read -s -p "Confirmez le mot de passe : " mdp_confirm
+    echo
+
+    if [ "$mdp" = "$mdp_confirm" ]; then
+        break
+    else
+        echo "Les mots de passe ne correspondent pas. Veuillez réessayer."
+    fi
+done
+
 
 sudo mysql -u root <<EOF
 CREATE DATABASE IF NOT EXISTS zabbix CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
@@ -37,7 +51,7 @@ FLUSH PRIVILEGES;
 EOF
 
 echo "Téléchargement du dépôt Zabbix..."
-wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_7.0-1+debian12_all.deb
+sudo wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_7.0-1+debian12_all.deb
 
 echo "Installation du dépôt Zabbix..."
 sudo dpkg -i zabbix-release_7.0-1+debian12_all.deb
