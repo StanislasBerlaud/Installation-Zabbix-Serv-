@@ -25,7 +25,7 @@ Ce script Bash permet d’installer et de configurer **Zabbix 7.0** sur un serve
 Clonez ce dépôt ou téléchargez le script :
 ```bash
 git clone https://github.com/StanislasBerlaud/Installation-Zabbix-Serv-.git
-cd zabbix-debian-install
+cd Installation-Zabbix-Serv-
 ```
 Rendez le script exécutable :
 
