@@ -2,7 +2,7 @@
 
 Ce script Bash permet d’installer et de configurer **Zabbix 7.0** sur un serveur **Debian 12**. Il comprend l'installation de la base de données **MariaDB**, du serveur Zabbix, de l'interface web.
 
-## 🚀 Fonctionnalités
+##  Fonctionnalités
 
 - Mise à jour du système
 - Configuration des locales `en_US.UTF-8` et `fr_FR.UTF-8` si absentes
@@ -15,13 +15,13 @@ Ce script Bash permet d’installer et de configurer **Zabbix 7.0** sur un serve
 - Configuration d'Apache pour l'interface web
 - Démarrage et activation des services
 
-## 📝 Prérequis
+##  Prérequis
 
 - Système Debian 12
 - Accès `sudo`
 - Connexion Internet active
 
-## ⚙️ Utilisation
+##  Utilisation
 Clonez ce dépôt ou téléchargez le script :
 ```bash
 git clone https://github.com/StanislasBerlaud/Installation-Zabbix-Serv-.git
@@ -44,21 +44,21 @@ Une fois l’installation terminée, accédez à l’interface web Zabbix via :
 http://[ADRESSE_IP_DU_SERVEUR]/zabbix
 ```
 
-## 🔐 Sécurité
+##  Sécurité
 Le mot de passe saisi pour MariaDB n’est stocké nulle part en clair, mais il est utilisé temporairement dans le script.
 
 Pensez à restreindre l’accès SSH et à changer les mots de passe par défaut après l’installation.
 Par défaut, pour vous connecter, le nom d'utilisateur est Admin et le mot de passe est zabbix.
 
 
-## 🛠️ Personnalisation
+##  Personnalisation
 Vous pouvez modifier :
 
 - La version de Zabbix (lien .deb dans le script)
 - La configuration d'Apache ou de PHP selon vos besoins
 
 
-## 📂 Fichiers modifiés par le script 
+##  Fichiers modifiés par le script 
 
 - /etc/zabbix/zabbix_server.conf
 
