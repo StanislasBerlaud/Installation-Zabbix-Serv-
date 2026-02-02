@@ -1,0 +1,39 @@
+services:
+  zabbix-db:
+    image: mariadb:10.11
+    container_name: zabbix-db
+    command: 
+      - --character-set-server=utf8mb4 
+      - --collation-server=utf8mb4_bin 
+      - --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./zbx_db_data:/var/lib/mysql
+    env_file:
+      - .env_db
+    restart: unless-stopped
+
+  zabbix-server:
+    image: zabbix/zabbix-server-mysql:alpine-7.0-latest
+    container_name: zabbix-server
+    ports:
+      - "10051:10051"
+    volumes:
+      - ./zbx_snmptraps:/var/lib/zabbix/snmptraps
+    env_file:
+      - .env_db
+      - .env_srv
+    depends_on:
+      - zabbix-db
+    restart: unless-stopped
+
+  zabbix-web:
+    image: zabbix/zabbix-web-apache-mysql:alpine-7.0-latest
+    container_name: zabbix-web
+    ports:
+      - "80:8080"
+    env_file:
+      - .env_db
+      - .env_srv
+    depends_on:
+      - zabbix-db
+    restart: unless-stopped
