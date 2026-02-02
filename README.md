@@ -55,12 +55,13 @@ Arrêter le serveur :
 
 ```Bash
 
+cd zabbix-docker
 sudo docker compose stop
 ```
 Redémarrer le serveur :
 
 ```Bash
-
+cd zabbix-docker
 sudo docker compose up -d
 ```
 
