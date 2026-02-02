@@ -47,26 +47,28 @@ Les commandes utiles pour gérer votre serveur Zabbix :
 
 Voir l'état des conteneurs :
 
-Bash
+```Bash
 
 cd zabbix-docker
 sudo docker compose ps
+```
 Arrêter le serveur :
 
-Bash
+```Bash
 
 sudo docker compose stop
 Redémarrer le serveur :
-
-Bash
+```
+```Bash
 
 sudo docker compose up -d
 Désinstaller complètement (Supprimer conteneurs + données) :
-
-Bash
+```
+```Bash
 
 cd zabbix-docker
 sudo docker compose down -v
+```
 🔒 Sécurité et Données
 Mots de passe : Vos mots de passe (DB User et Root) sont stockés localement dans le fichier .env à la racine du dossier d'installation. Ce fichier n'est jamais envoyé sur GitHub.
 
