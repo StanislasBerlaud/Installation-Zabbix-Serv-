@@ -75,4 +75,5 @@ Vos mots de passe (DB User et Root) sont stockés localement dans le fichier .en
 Données : Les données de supervision sont stockées dans un volume Docker persistant.
 
 Prérequis
+
 Un système Debian 12 ou Raspberry Pi OS (Bookworm) et une connexion internet.
