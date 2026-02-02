@@ -34,7 +34,7 @@ Lancer les services Zabbix.
 Accès à l'interface
 Une fois l'installation terminée, ouvrez votre navigateur :
 
-URL : http://<ADRESSE_IP_DE_VOTRE_PI>
+URL : http://<ADRESSE_IP>
 
 Utilisateur par défaut : Admin (Attention au 'A' majuscule)
 
@@ -57,24 +57,26 @@ Arrêter le serveur :
 ```Bash
 
 sudo docker compose stop
-Redémarrer le serveur :
 ```
+Redémarrer le serveur :
+
 ```Bash
 
 sudo docker compose up -d
-Désinstaller complètement (Supprimer conteneurs + données) :
 ```
+Désinstaller complètement (Supprimer conteneurs + données) :
+
 ```Bash
 
 cd zabbix-docker
 sudo docker compose down -v
 ```
-🔒 Sécurité et Données
+Sécurité et Données
 Mots de passe : Vos mots de passe (DB User et Root) sont stockés localement dans le fichier .env à la racine du dossier d'installation. Ce fichier n'est jamais envoyé sur GitHub.
 
 Données : Les données de supervision sont stockées dans un volume Docker persistant.
 
-📋 Prérequis
+Prérequis
 Un système Debian 12 ou Raspberry Pi OS (Bookworm).
 
 Une connexion Internet.
