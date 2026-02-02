@@ -63,7 +63,7 @@ Redémarrer le serveur :
 
 sudo docker compose up -d
 ```
-Désinstaller complètement (Supprimer conteneurs + données) :
+Reset général :
 
 ```Bash
 
