@@ -26,26 +26,32 @@ if [ ! -f .env ]; then
     echo "CONFIGURATION DES MOTS DE PASSE"
     
     while true; do
-        read -sp "Mot de passe pour l'utilisateur DB 'zabbix' : " DB_PASS
+        echo -n "Choisissez le mot de passe pour l'utilisateur DB 'zabbix' : "
+        read -s DB_PASS
         echo ""
-        read -sp "Confirmez le mot de passe : " DB_PASS_CONFIRM
+        echo -n "Confirmez le mot de passe : "
+        read -s DB_PASS_CONFIRM
         echo ""
-        if [ "$DB_PASS" = "$DB_PASS_CONFIRM" ] && [ ! -z "$DB_PASS" ]; then
+        
+        if [ -n "$DB_PASS" ] && [ "$DB_PASS" == "$DB_PASS_CONFIRM" ]; then
             break
         else
-            echo "Les mots de passe ne correspondent pas ou sont vides. Réessayez."
+            echo "Erreur : Les mots de passe ne correspondent pas ou sont vides. Réessayez."
         fi
     done
 
     while true; do
-        read -sp "Mot de passe pour l'administrateur 'root' de la DB : " ROOT_PASS
+        echo -n "Choisissez le mot de passe pour l'administrateur 'root' : "
+        read -s ROOT_PASS
         echo ""
-        read -sp "Confirmez le mot de passe root : " ROOT_PASS_CONFIRM
+        echo -n "Confirmez le mot de passe root : "
+        read -s ROOT_PASS_CONFIRM
         echo ""
-        if [ "$ROOT_PASS" = "$ROOT_PASS_CONFIRM" ] && [ ! -z "$ROOT_PASS" ]; then
+        
+        if [ -n "$ROOT_PASS" ] && [ "$ROOT_PASS" == "$ROOT_PASS_CONFIRM" ]; then
             break
         else
-            echo "Les mots de passe root ne correspondent pas ou sont vides. Réessayez."
+            echo "Erreur : Les mots de passe root ne correspondent pas ou sont vides. Réessayez."
         fi
     done
 
