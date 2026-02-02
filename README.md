@@ -63,13 +63,7 @@ Redémarrer le serveur :
 
 sudo docker compose up -d
 ```
-Reset général :
 
-```Bash
-
-cd zabbix-docker
-sudo docker compose down -v
-```
 
 Désinstallation complète :
 
