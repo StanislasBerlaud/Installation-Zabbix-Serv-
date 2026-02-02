@@ -13,7 +13,7 @@ if [ -d "$INSTALL_DIR" ]; then
     echo "Le dossier $INSTALL_DIR existe déjà. Mise à jour..."
     cd $INSTALL_DIR && git pull
 else
-    git clone https://github.com/StanislasBerlaud/Installation-Zabbix-Serv-.git $INSTALL_DIR
+    git clone -b docker https://github.com/StanislasBerlaud/Installation-Zabbix-Serv-.git $INSTALL_DIR
     cd $INSTALL_DIR
 fi
 
