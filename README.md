@@ -12,7 +12,6 @@ L'installation est entièrement automatisée, sécurisée et isolée dans des co
   - **Interface Web** (Apache + PHP)
   - **Base de données** (MariaDB)
 - **Sécurité renforcée** : Les mots de passe de la base de données sont demandés lors de l'installation et stockés uniquement en local dans un fichier `.env`.
-- **Propre** : Rien n'est installé directement sur le système hôte (à part Docker).
 
 ## Installation Rapide (One-Liner)
 
