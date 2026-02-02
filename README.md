@@ -1,68 +1,78 @@
-# Script d'installation de Zabbix sur Debian 12
+# Installation Zabbix 7.0 (Docker) sur Raspberry Pi / Debian
 
-Ce script Bash permet d’installer et de configurer **Zabbix 7.0** sur un serveur **Debian 12**. Il comprend l'installation de la base de données **MariaDB**, du serveur Zabbix, de l'interface web.
+Ce projet permet de déployer une solution de supervision **Zabbix 7.0 LTS** en quelques minutes sur un Raspberry Pi 5 ou un serveur Debian 12, en utilisant **Docker**.
 
-##  Fonctionnalités
+L'installation est entièrement automatisée, sécurisée et isolée dans des conteneurs.
 
-- Mise à jour du système
-- Configuration des locales `en_US.UTF-8` et `fr_FR.UTF-8` si absentes
-- Installation de MariaDB
-- Création de la base de données et de l'utilisateur Zabbix
-- Installation du dépôt officiel Zabbix
-- Installation des paquets nécessaires
-- Import du schéma SQL
-- Configuration du serveur Zabbix et de PHP
-- Configuration d'Apache pour l'interface web
-- Démarrage et activation des services
+## Fonctionnalités
 
-##  Prérequis
+- **Installation automatique** de Docker et Docker Compose (si absents).
+- Déploiement de la stack complète :
+  - **Zabbix Server 7.0** (Alpine Linux)
+  - **Interface Web** (Apache + PHP)
+  - **Base de données** (MariaDB)
+- **Sécurité renforcée** : Les mots de passe de la base de données sont demandés lors de l'installation et stockés uniquement en local dans un fichier `.env`.
+- **Propre** : Rien n'est installé directement sur le système hôte (à part Docker).
 
-- Système Debian 12
-- Accès `sudo`
-- Connexion Internet active
+## Installation Rapide (One-Liner)
 
-##  Utilisation
-Clonez ce dépôt ou téléchargez le script :
-```bash
-git clone https://github.com/StanislasBerlaud/Installation-Zabbix-Serv-.git
-cd Installation-Zabbix-Serv-
-```
-Rendez le script exécutable :
+Ouvrez un terminal sur votre machine et lancez simplement cette commande :
 
 ```bash
-chmod +x zabbixServ.sh
-```
-Lancez l’installation :
+curl -sSL [https://raw.githubusercontent.com/StanislasBerlaud/Installation-Zabbix-Serv-/docker/install.sh](https://raw.githubusercontent.com/StanislasBerlaud/Installation-Zabbix-Serv-/docker/install.sh) | bash
 
-```bash
-sudo ./zabbixServ.sh
-```
-Le script vous demandera un mot de passe pour l’utilisateur zabbix dans MariaDB. Assurez-vous de le retenir pour les futures configurations.
+Le script va :
 
-Une fois l’installation terminée, accédez à l’interface web Zabbix via :
-```
-http://[ADRESSE_IP_DU_SERVEUR]/zabbix
-```
+Mettre à jour votre système.
 
-##  Sécurité
-Le mot de passe saisi pour MariaDB n’est stocké nulle part en clair, mais il est utilisé temporairement dans le script.
+Installer Docker (si nécessaire).
 
-Pensez à restreindre l’accès SSH et à changer les mots de passe par défaut après l’installation.
-Par défaut, pour vous connecter, le nom d'utilisateur est Admin et le mot de passe est zabbix.
+Vous demander de définir vos mots de passe sécurisés.
 
+Lancer les services Zabbix.
 
-##  Personnalisation
-Vous pouvez modifier :
+Accès à l'interface
+Une fois l'installation terminée, ouvrez votre navigateur :
 
-- La version de Zabbix (lien .deb dans le script)
-- La configuration d'Apache ou de PHP selon vos besoins
+URL : http://<ADRESSE_IP_DE_VOTRE_PI>
 
+Utilisateur par défaut : Admin (Attention au 'A' majuscule)
 
-##  Fichiers modifiés par le script 
+Mot de passe par défaut : zabbix
 
-- /etc/zabbix/zabbix_server.conf
+Note : Au premier lancement, la base de données peut prendre 30 à 60 secondes pour s'initialiser.
 
-- /etc/php/8.2/apache2/php.ini
+Gestion du serveur
+Les commandes utiles pour gérer votre serveur Zabbix :
 
-- /etc/apache2/conf-available/zabbix.conf
+Voir l'état des conteneurs :
 
+Bash
+
+cd zabbix-docker
+sudo docker compose ps
+Arrêter le serveur :
+
+Bash
+
+sudo docker compose stop
+Redémarrer le serveur :
+
+Bash
+
+sudo docker compose up -d
+Désinstaller complètement (Supprimer conteneurs + données) :
+
+Bash
+
+cd zabbix-docker
+sudo docker compose down -v
+🔒 Sécurité et Données
+Mots de passe : Vos mots de passe (DB User et Root) sont stockés localement dans le fichier .env à la racine du dossier d'installation. Ce fichier n'est jamais envoyé sur GitHub.
+
+Données : Les données de supervision sont stockées dans un volume Docker persistant.
+
+📋 Prérequis
+Un système Debian 12 ou Raspberry Pi OS (Bookworm).
+
+Une connexion Internet.
