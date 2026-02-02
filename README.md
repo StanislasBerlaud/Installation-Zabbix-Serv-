@@ -72,7 +72,7 @@ cd zabbix-docker
 sudo docker compose down -v
 ```
 Sécurité et Données
-Mots de passe : Vos mots de passe (DB User et Root) sont stockés localement dans le fichier .env à la racine du dossier d'installation. Ce fichier n'est jamais envoyé sur GitHub.
+Mots de passe : Vos mots de passe (DB User et Root) sont stockés localement dans le fichier .env à la racine du dossier d'installation.
 
 Données : Les données de supervision sont stockées dans un volume Docker persistant.
 
