@@ -18,7 +18,7 @@ L'installation est entièrement automatisée, sécurisée et isolée dans des co
 Ouvrez un terminal sur votre machine et lancez simplement cette commande :
 
 ```bash
-curl -sSL [https://raw.githubusercontent.com/StanislasBerlaud/Installation-Zabbix-Serv-/docker/install.sh](https://raw.githubusercontent.com/StanislasBerlaud/Installation-Zabbix-Serv-/docker/install.sh) | bash
+curl -sSL https://raw.githubusercontent.com/StanislasBerlaud/Installation-Zabbix-Serv-/docker/install.sh | bash
 ```
 Le script va :
 
