@@ -70,6 +70,19 @@ Reset général :
 cd zabbix-docker
 sudo docker compose down -v
 ```
+
+Désinstallation complète :
+
+```Bash
+
+cd ~/zabbix-docker
+sudo docker compose down -v
+
+sudo docker image prune -a -f
+
+cd ~
+sudo rm -rf zabbix-docker
+```
 Vos mots de passe (DB User et Root) sont stockés localement dans le fichier .env à la racine du dossier d'installation.
 
 Données : Les données de supervision sont stockées dans un volume Docker persistant.
