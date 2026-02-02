@@ -27,13 +27,13 @@ if [ ! -f .env ]; then
     
     while true; do
         echo -n "Choisissez le mot de passe pour l'utilisateur DB 'zabbix' : "
-        read -s DB_PASS
+        read -s DB_PASS < /dev/tty
         echo ""
         echo -n "Confirmez le mot de passe : "
-        read -s DB_PASS_CONFIRM
+        read -s DB_PASS_CONFIRM < /dev/tty
         echo ""
         
-        if [ -n "$DB_PASS" ] && [ "$DB_PASS" == "$DB_PASS_CONFIRM" ]; then
+        if [ -n "$DB_PASS" ] && [ "$DB_PASS" = "$DB_PASS_CONFIRM" ]; then
             break
         else
             echo "Erreur : Les mots de passe ne correspondent pas ou sont vides. Réessayez."
@@ -42,13 +42,13 @@ if [ ! -f .env ]; then
 
     while true; do
         echo -n "Choisissez le mot de passe pour l'administrateur 'root' : "
-        read -s ROOT_PASS
+        read -s ROOT_PASS < /dev/tty
         echo ""
         echo -n "Confirmez le mot de passe root : "
-        read -s ROOT_PASS_CONFIRM
+        read -s ROOT_PASS_CONFIRM < /dev/tty
         echo ""
         
-        if [ -n "$ROOT_PASS" ] && [ "$ROOT_PASS" == "$ROOT_PASS_CONFIRM" ]; then
+        if [ -n "$ROOT_PASS" ] && [ "$ROOT_PASS" = "$ROOT_PASS_CONFIRM" ]; then
             break
         else
             echo "Erreur : Les mots de passe root ne correspondent pas ou sont vides. Réessayez."
@@ -63,7 +63,6 @@ if [ ! -f .env ]; then
 else
     echo "Le fichier .env existe déjà, utilisation des paramètres actuels."
 fi
-
 
 echo "Lancement des conteneurs Zabbix..."
 sudo docker compose up -d
