@@ -8,7 +8,7 @@ L'installation est entièrement automatisée, sécurisée et isolée dans des co
 
 - **Installation automatique** de Docker et Docker Compose (si absents).
 - Déploiement de la stack complète :
-  - **Zabbix Server 7.0** (Alpine Linux)
+  - **Zabbix Server 7.0**
   - **Interface Web** (Apache + PHP)
   - **Base de données** (MariaDB)
 - **Sécurité renforcée** : Les mots de passe de la base de données sont demandés lors de l'installation et stockés uniquement en local dans un fichier `.env`.
